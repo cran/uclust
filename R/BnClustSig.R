@@ -78,7 +78,7 @@ uclust <- function(md = NULL, data = NULL, alpha = 0.05, rep = 15) {
         md <- as.matrix(dist(data) ^ 2)
     }
 
-    if (class(md) != "matrix") {
+    if (sum("matrix" %in% class(md)) == 0) {
         stop("md is not of class matrix")
     }
 
@@ -91,7 +91,7 @@ uclust <- function(md = NULL, data = NULL, alpha = 0.05, rep = 15) {
         bootB <- is.h$bootB
         bootB1 <- is.h$bootB1
 
-        oBn <- rep.optimBn(md, bootB = bootB, rep = rep) # finds max Bn
+        oBn <- rep_optimBn(md, bootB = bootB, rep = rep) # finds max Bn
         maxBn <- -oBn$minFobj
 
         n1 <- length(oBn$grupo1)
@@ -125,7 +125,7 @@ uclust <- function(md = NULL, data = NULL, alpha = 0.05, rep = 15) {
                 n1_min <- n1m + 1
                 n1_max <- n - n1_min
 
-                oBn <- rep.optimBn_restrict(md, n1_max, n1_min, rep = rep)
+                oBn <- rep_optimBn_restrict(md, n1_max, n1_min, rep = rep)
 
                 maxBn <- -oBn$minFobj # compare to groups of size 1
                 maxBnmax <- max(maxBn1, maxBn)
@@ -168,13 +168,13 @@ uclust <- function(md = NULL, data = NULL, alpha = 0.05, rep = 15) {
     if (n1 != n) {
         if (is.group$significant == FALSE) {
             # rare case: not homogeneous, but didn`t find any signif partition
-            n1 <- length(is.h$grupo1)
+            n1 <- length(is.h$group1)
             ishomo <- FALSE
             p <- is.h$p.MaxTest
             alpha_correct <- alpha
-            bn <- Bn(c(length(is.h$grupo1), length(is.h$grupo2)), md[c(is.h$grupo1, is.h$grupo2), c(is.h$grupo1, is.h$grupo2)])
+            bn <- Bn(c(length(is.h$group1), length(is.h$group2)), md[c(is.h$group1, is.h$group2), c(is.h$group1, is.h$group2)])
             varBn <- (bn / is.h$minFobj) ^ 2
-            clust <- is.h$grupo1
+            clust <- is.h$group1
         }
         else {
             #regular case: not homogeneous and finds partition
@@ -218,7 +218,7 @@ uclust <- function(md = NULL, data = NULL, alpha = 0.05, rep = 15) {
         }
     }
     else {
-        n1 <- length(is.h$grupo1)
+        n1 <- length(is.h$group1)
         ishomo <- TRUE
         bn <- Bn(c(length(is.h$group1), length(is.h$group2)), md[c(is.h$group1, is.h$group2), c(is.h$group1, is.h$group2)])
         varBn <- (bn / is.h$minFobj) ^ 2
@@ -326,10 +326,21 @@ optimBn <- function(md, itmax = 200, centers = -1, bootB = -1) {
 }
 
 #############################################################################################
-### Optimization function with multiple staring ponts for local optima
-### Finds the configuration with max Bn among all configurations: rep.optimBn
+### Optimization function with multiple staring points for local optima
+### Finds the configuration with max Bn among all configurations: rep_optimBn
 #############################################################################################
-rep.optimBn <- function(mdm, rep = 15, bootB = -1) {
+#' Optimization function with multiple staring points (for local optima)
+#'
+#' Finds the configuration with max Bn among all configurations.
+#'
+#' @param mdm Matrix of squared Euclidean distances between all data points.
+#' @param rep Number of replications
+#' @param bootB Result of previous bootstrap (if available). If, -1, a new bootstrap is performed for the variance of Bn.
+#'
+#'@export
+
+
+rep_optimBn <- function(mdm, rep = 15, bootB = -1) {
     ans <- optimBn(mdm, bootB = bootB)
     Fobj <- vector()
     n <- dim(mdm)[1]
@@ -478,10 +489,10 @@ optimBn_restrict <- function(md, n1_max, n1_min, itmax = 200) {
 }
 
 #############################################################################################
-### Optimization function with multiple staring ponts for local optima
-### Finds the configuration with max Bn among  restricted set: rep.optimBn_restrict
+### Optimization function with multiple staring points for local optima
+### Finds the configuration with max Bn among  restricted set: rep_optimBn_restrict
 #############################################################################################
-rep.optimBn_restrict <- function(mdm, n1_max, n1_min, rep = 15) {
+rep_optimBn_restrict <- function(mdm, n1_max, n1_min, rep = 15) {
     ans <- optimBn_restrict(mdm, n1_max, n1_min)
     Fobj <- vector()
     n <- dim(mdm)[1]

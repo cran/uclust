@@ -4,8 +4,13 @@
 \alias{plot_uhclust}
 \title{Plot function for the result of uhclust}
 \usage{
-plot_uhclust(uhclust, pvalues_cex = 0.8, pvalues_dx = 2,
-  pvalues_dy = 0.08, print_pvalues = TRUE)
+plot_uhclust(
+  uhclust,
+  pvalues_cex = 0.8,
+  pvalues_dx = 2,
+  pvalues_dy = 0.08,
+  print_pvalues = TRUE
+)
 }
 \arguments{
 \item{uhclust}{Result from \code{uhclust}}

@@ -4,8 +4,7 @@
 \alias{uhclust}
 \title{U-statistic based significance hierarchical clustering}
 \usage{
-uhclust(md = NULL, data = NULL, alpha = 0.05, rep = 15,
-  plot = TRUE)
+uhclust(md = NULL, data = NULL, alpha = 0.05, rep = 15, plot = TRUE)
 }
 \arguments{
 \item{md}{Matrix of squared Euclidean distances between all data points.}
@@ -50,7 +49,7 @@ For more detail see Cybis, Gabriela B., Marcio Valk, and Sílvia RC Lopes. "Clus
 Journal of Statistical Computation and Simulation 88.10 (2018)
 and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." arXiv preprint arXiv:1805.12179 (2018).
 
-See also \code{is_homo}, \code{uclust} and \code{Utest_class}.
+ See also \code{is_homo}, \code{uclust} and \code{Utest_class}.
 }
 \examples{
 

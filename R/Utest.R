@@ -55,7 +55,7 @@ utest <- function(group_id, md = NULL, data = NULL, numB=1000)
         md <- as.matrix(dist(data) ^ 2)
     }
 
-    if (class(md) != "matrix") {
+    if (sum("matrix" %in% class(md)) == 0) {
         stop("md is not of class matrix")
     }
 

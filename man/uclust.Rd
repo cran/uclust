@@ -45,6 +45,7 @@ partitioned. If the hypothesis of homogeneity is rejected, then the method will 
 the significant partitions, for the partition that better separates the data, as measured by larger
 \code{bn} statistic. This function should be used in high dimension small sample size settings.
 
+
 Either \code{data} or \code{md} should be provided.
 If data are entered directly, Bn will be computed considering the squared Euclidean distance.
 It is important that if a distance matrix is entered, it consists of squared Euclidean distances, otherwise test results are

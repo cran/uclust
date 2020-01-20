@@ -52,7 +52,7 @@ var_bn <- function(group_sizes, md = NULL, data = NULL, numB = 2000) {
         md <- as.matrix(dist(data) ^ 2)
     }
 
-    if (class(md) != "matrix") {
+    if (sum("matrix" %in% class(md)) == 0) {
         stop("md is not of class matrix")
     }
 
@@ -119,6 +119,7 @@ boot_sigma1 <- function(ngv, md)
     a <- robcor::robacf(B, lag.max = 0, type = "covariance", plot = FALSE)
 
     varBboot <- as.numeric(a$acf)
+    if(is.nan(varBboot)) varBboot=var(B)
 
     return(varBboot)
 }

@@ -69,7 +69,7 @@ is_homo <- function(md = NULL, data = NULL, rep = 10) {
         md <- as.matrix(dist(data) ^ 2)
     }
 
-    if (class(md) != "matrix") {
+    if (sum("matrix" %in% class(md)) == 0) {
         stop("md is not of class matrix")
     }
 

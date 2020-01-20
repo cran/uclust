@@ -69,9 +69,9 @@ uhclust <- function(md = NULL, data = NULL, alpha = 0.05, rep = 15, plot = TRUE)
         }
     }
 
-    if (class(md) != "matrix") {
-        stop("md is not of class matrix")
-    }
+  if (sum("matrix" %in% class(md)) == 0) {
+    stop("md is not of class matrix")
+  }
 
   if (is.null(rownames(md))) {
     rownames(md) <- 1:(dim(md)[1])
