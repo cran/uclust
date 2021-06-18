@@ -9,10 +9,10 @@
    in which the dimension L is much larger than sample size n. 
 
 
-## The package contains functions for nonparamentric tests:
+## The package contains functions for nonparametric tests:
 
-* Bn test for group separation with 2 predefined groups
+* Bn test for group separation with 2 or 3 predefined groups
 * Overall group homogeneity testing
-* Clustering of a sample into the best two significant subgroups
+* Clustering of a sample into the best two our three significant subgroups
 * Hierarchical clustering considering only significant subgroups
 * Significant classification of a new observation into one of two predefined groups

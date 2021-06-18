@@ -4,7 +4,7 @@
 #' Estimates the variance of the Bn statistic using the resampling
 #'  procedure described in Cybis, Gabriela B., Marcio Valk, and Sílvia RC Lopes. "Clustering and classification problems in genetics through U-statistics."
 #' Journal of Statistical Computation and Simulation 88.10 (2018)
-#' and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." arXiv preprint arXiv:1805.12179 (2018).
+#' and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." Journal of Computational and Graphical Statistics 30(1) (2021).
 #'
 #' Either \code{data} or \code{md} should be provided.
 #' If data are entered directly, Bn will be computed considering the squared Euclidean

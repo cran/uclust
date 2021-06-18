@@ -11,7 +11,7 @@
 #'
 #' For more detail see Cybis, Gabriela B., Marcio Valk, and Sílvia RC Lopes. "Clustering and classification problems in genetics through U-statistics."
 #' Journal of Statistical Computation and Simulation 88.10 (2018)
-#' and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." arXiv preprint arXiv:1805.12179 (2018).
+#' and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." Journal of Computational and Graphical Statistics 30(1) (2021).
 #' @param group_id A vector of 0s and 1s indicating to which group the samples belong. Must be in the same order as data or md.
 #' @param md Matrix of distances between all data points.
 #' @param data Data matrix. Each row represents an observation.

@@ -7,7 +7,7 @@
 uclust(md = NULL, data = NULL, alpha = 0.05, rep = 15)
 }
 \arguments{
-\item{md}{Matrix of squared Euclidean distances between all data points.}
+\item{md}{Matrix of distances between all data points.}
 
 \item{data}{Data matrix. Each row represents an observation.}
 
@@ -48,14 +48,12 @@ the significant partitions, for the partition that better separates the data, as
 
 Either \code{data} or \code{md} should be provided.
 If data are entered directly, Bn will be computed considering the squared Euclidean distance.
-It is important that if a distance matrix is entered, it consists of squared Euclidean distances, otherwise test results are
-invalid.
 
 Variance of \code{bn} is estimated through resampling, and thus, p-values may vary a bit in different runs.
 
 For more detail see Cybis, Gabriela B., Marcio Valk, and Sílvia RC Lopes. "Clustering and classification problems in genetics through U-statistics."
 Journal of Statistical Computation and Simulation 88.10 (2018)
-and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." arXiv preprint arXiv:1805.12179 (2018).
+and Valk, Marcio, and Gabriela Bettella Cybis. "U-statistical inference for hierarchical clustering." Journal of Computational and Graphical Statistics 30(1) (2021).
 See also \code{is_homo}, \code{uhclust}, \code{Utest_class}.
 }
 \examples{
